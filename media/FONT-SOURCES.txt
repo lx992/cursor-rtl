@@ -1,0 +1,11 @@
+Bundled fonts are separate works under the SIL Open Font License 1.1.
+See OFL.txt for the license text.
+
+Vazirmatn 33.003 — https://github.com/rastikerdar/vazirmatn
+Vazir 30.1.0 — https://github.com/rastikerdar/vazir-font
+Shabnam 5.0.1 — https://github.com/rastikerdar/shabnam-font
+Sahel 3.4.0 — https://github.com/rastikerdar/sahel-font
+Estedad — https://github.com/aminabedi68/Estedad
+
+Tahoma is not bundled. It is a system font selected by name.
+Custom uses a font-family name already installed on the computer.

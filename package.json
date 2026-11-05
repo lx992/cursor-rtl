@@ -1,0 +1,101 @@
+{
+  "name": "cursor-rtl",
+  "displayName": "Cursor RTL",
+  "description": "راست‌چین کردن پرسش، پاسخ و کادر چت Cursor با فونت وزیر و امکان خاموش/روشن و انتخاب فونت",
+  "version": "0.1.2",
+  "publisher": "local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lx992/cursor-rtl.git"
+  },
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "cursorRtl.toggle",
+        "title": "Cursor RTL: روشن یا خاموش کردن"
+      },
+      {
+        "command": "cursorRtl.selectFont",
+        "title": "Cursor RTL: انتخاب فونت چت"
+      },
+      {
+        "command": "cursorRtl.reapply",
+        "title": "Cursor RTL: نصب دوباره بعد از آپدیت"
+      },
+      {
+        "command": "cursorRtl.remove",
+        "title": "Cursor RTL: برداشتن وصله"
+      }
+    ],
+    "configuration": {
+      "title": "Cursor RTL",
+      "properties": {
+        "cursorRtl.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "راست‌چین و فونت فارسی را روی پرسش‌ها، پاسخ‌ها و کادر نوشتن چت اعمال می‌کند."
+        },
+        "cursorRtl.markdownRtl": {
+          "type": "boolean",
+          "default": true,
+          "description": "فایل‌های مارک‌داون در ویرایشگر راست‌چین شوند."
+        },
+        "cursorRtl.markdownFont": {
+          "type": "boolean",
+          "default": true,
+          "description": "فونت انتخاب‌شده روی فایل‌های مارک‌داون اعمال شود. راست‌چین جدا از این گزینه است."
+        },
+        "cursorRtl.fontFamily": {
+          "type": "string",
+          "default": "Vazirmatn",
+          "enum": [
+            "Vazirmatn",
+            "Vazir",
+            "Shabnam",
+            "Sahel",
+            "Estedad",
+            "Tahoma",
+            "Custom"
+          ],
+          "enumDescriptions": [
+            "وزیرمتن، نسخهٔ فعلی وزیر",
+            "وزیر کلاسیک",
+            "شبنم",
+            "ساحل",
+            "استعداد",
+            "Tahoma سیستمی",
+            "نام فونتی که روی ویندوز نصب شده است"
+          ],
+          "description": "فونت متن چت."
+        },
+        "cursorRtl.customFontFamily": {
+          "type": "string",
+          "default": "",
+          "description": "وقتی فونت روی Custom است، نام font-family نصب‌شده روی ویندوز."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p .",
+    "test": "npm run compile && node test/patch.test.js",
+    "package": "npm run compile && vsce package --allow-missing-repository --skip-license"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/vscode": "^1.80.0",
+    "@vscode/vsce": "^3.6.0",
+    "typescript": "^5.8.0"
+  }
+}
